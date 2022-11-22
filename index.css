@@ -1,0 +1,122 @@
+body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+
+}
+.container_left
+{
+	border : 1px solid black;
+	height: 1000px;
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgb(51,51,51);
+
+}
+.container_right
+{
+	border : 1px solid black;
+	height: 1000px;
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(51,51,51);
+}
+.container
+{
+	border : 1px solid black;
+	height: 1000px;
+	width: 100%;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+}
+.draw
+{
+	height: 90%;
+	width: 90%;
+	max-width: 1000px;
+	background-color: white;
+}
+.pen
+{
+
+	height: 90px;
+	width: 90px;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+.pen:hover
+{
+	background-color: rgb(92,92,92);
+}
+.img_class
+{
+	height: 60px;
+	width: 60px;
+	border-radius: 5px;
+}
+.color
+{
+	height: 180px;
+	width: 180px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.red
+{
+	background-color: red;
+	height: 90px;
+	width: 90px;
+}
+.red:hover
+{
+	outline: 10px solid white;
+    outline-offset: -10px;
+}
+.green
+{
+	background-color: green;
+	height: 90px;
+	width: 90px;
+}
+.green:hover
+{
+	outline: 10px solid white;
+    outline-offset: -10px;
+}
+.blue
+{
+	background-color: blue;
+	height: 90px;
+	width: 90px;
+}
+.blue:hover
+{
+	outline: 10px solid white;
+    outline-offset: -10px;
+}
+.black
+{
+	background-color: black;
+	height: 90px;
+	width: 90px;
+}
+.black:hover
+{
+	outline: 10px solid white;
+    outline-offset: -10px;
+}
