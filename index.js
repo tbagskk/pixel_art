@@ -7,6 +7,18 @@ context.lineWidth = 10;
 let isDrawing = false;
 let x = 0;
 let y = 0;
+let taille = 20;
+
+
+
+function changeRange(value)
+{
+    taille = value;
+    
+}
+console.log(taille);
+
+
 // Wall
 //ctx.strokeRect(75, 140, 150, 110);
 //ctx.fillStyle = '#FF5733';
@@ -65,14 +77,25 @@ black.addEventListener("click",change_black);
 //debut
 
 const rect = canvas.getBoundingClientRect();
-canvas.addEventListener('mousedown', e => {
+let erraser = document.getElementById('erraser');
+erraser.addEventListener("click",effa);
+let gomme = false;
+
+function effa()
+{
+	gomme = true;
+	console.log(gomme);
+}
+
+canvas.addEventListener('mousedown', e => { //des qu'on appuie
   x = e.clientX - rect.left;
   y = e.clientY - rect.top;
   isDrawing = true;
 });
 
-canvas.addEventListener('mousemove', e => {
-  if (isDrawing === true) {
+canvas.addEventListener('mousemove', e => { //des qu'on bouge
+  if (isDrawing === true)
+   {
     drawLine(context, x, y, e.clientX - rect.left, e.clientY - rect.top);
     x = e.clientX - rect.left;
     y = e.clientY - rect.top;
@@ -85,27 +108,50 @@ window.addEventListener('mouseup', e => {
     x = 0;
     y = 0;
     isDrawing = false;
+    //console.log(taille);
   }
 });
 console.log(x,y);
 
 function drawLine(context, x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = color;
-  context.lineWidth = 1;
-  context.lineHeight = 1;
+
+  context.strokeStyle = "Red";
+  context.fillStyle = color;
+  context.lineWidth = 10;
+  context.lineHeight = 10;
   context.moveTo(x1, y1); //deplace vers nvl coordonées
   context.lineTo(x2, y2); //connecte le dernier point du sous-chemin en cours aux coordonnées
  // context.arc(x1, y1, 5, 0, 2 * Math.PI); 
-  context.stroke();
+ 
+   if (gomme == true)
+  {
+  	context.clearRect(x1 - 50, y1 - 50, 100, 100);
+  }
+  else
+  {
+  	 context.fillRect(x1 - (taille/2), (y1 -(taille/2)), taille, taille);
+  }
   context.closePath();
 }
- 
+ /*
+function effacer(x1, y1, x2, y2)
+{
+context.beginPath();
+context.moveTo(x1, y1);
+context.lineTo(x2, y2);
+context.closePath(); // dessine la dernière ligne du triangle
+context.stroke();
+
+context.clearRect(400, 400, 100, 100);
+}
+*/
 //fin
 
 function change_red()
 {
 	color = '#FF0000';
+	console.log("red");
 }
 function change_black()
 {
@@ -121,20 +167,19 @@ function change_blue()
 }
 
 let pen = document.getElementById('pen');
-pen.addEventListener("click",dessiner);
+pen.addEventListener("click",pen_true);
 
-let erraser = document.getElementById('erraser');
-erraser.addEventListener("click",effacer);
-
-function dessiner()
+function pen_true()
 {
-	console.log("caca");
-	context.fillStyle = color;
-	context.fillRect(400, 400, 100, 100);
+	gomme = false;
 }
-function effacer()
+
+
+
+function background()
 {
-	console.log("caca");
-	context.fillStyle = '#FFFFFF';
-	context.fillRect(400, 400, 100, 100);
+
+	context.fillStyle = color;
+
+	context.fillRect(400, 400, 200, 200);
 }

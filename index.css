@@ -15,7 +15,7 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: row;
+	flex-direction: column;
 	background-color: rgb(51,51,51);
 
 }
@@ -40,12 +40,19 @@ body{
 	align-items: center;
 	background-color: black;
 }
+.container1
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
 .draw
 {
-	height: 90%;
-	width: 90%;
+	height: 960px;
+	width: 960px;
 	max-width: 1000px;
-	background-color: white;
+	background: url("png.png");
 	display: flex;
 	justify-content:center;
 	flex-direction: column;
@@ -126,7 +133,7 @@ body{
 }
 .canva
 {
-	height: 800px;
-	width: 900px;
+	height: 960px;
+	width: 960px;
 	border:5px solid black;
 }

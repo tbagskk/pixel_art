@@ -8,16 +8,41 @@
 
 <body>
   <div class="container_left">
-    <div class="pen" id="pen">
-      <img class="img_class" src="pen.png">
+    <div class="container1">
+      <div class="pen" id="pen">
+        <img class="img_class" src="pen.png">
+      </div>
+      <div class="pen" id="erraser">
+       <img class="img_class" src="eraser.png">
+      </div>
+      
     </div>
-    <div class="pen" id="erraser">
-      <img class="img_class" src="eraser.png">
+    <div class="container1">
+      <div class="pen" id="pen">
+        <img class="img_class" src="peinture.png">
+      </div>
+      <div class="pen" id="pen">
+        <img class="img_class" src="cercle.png">
+      </div>
     </div>
+    <div class="container1">
+      <div class="pen" id="pen">
+        <img class="img_class" src="carre.png">
+      </div>
+      <div class="pen" id="pen">
+
+      </div>
+
+    </div>
+    <div class="container1">
+        <input type="range" id="taille" 
+         min="0" max="100" value="20" step="1" oninput="changeRange(this.value)">
+      </div>
+    
   </div>
   <div class="container">
     <div class="draw" id="draw">
-      <canvas id="canva" class="canva" width="900px" height="800px"></canvas>
+      <canvas id="canva" class="canva" width="960px" height="960px"></canvas>
 
     </div>
   </div>
