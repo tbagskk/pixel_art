@@ -5,30 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <link rel="stylesheet"  href="index.css"/>
 </head>
-<script src="index.js"></script>
+
 <body>
   <div class="container_left">
-    <div class="pen">
+    <div class="pen" id="pen">
       <img class="img_class" src="pen.png">
     </div>
-    <div class="pen">
+    <div class="pen" id="erraser">
       <img class="img_class" src="eraser.png">
     </div>
   </div>
   <div class="container">
-    <div class="draw">
+    <div class="draw" id="draw">
+      <canvas id="canva" class="canva" width="900px" height="800px"></canvas>
 
     </div>
   </div>
   <div class="container_right">
     <div class="color">
     <div>
-      <div class="red"></div>
-      <div class="blue"></div>
+      <div class="red" id="red"></div>
+      <div class="blue" id="blue"></div>
     </div>
     <div>
-      <div class="green"></div>
-      <div class="black"></div>
+      <div class="green" id="green"></div>
+      <div class="black" id="black"></div>
     </div>
      
 
@@ -36,4 +37,5 @@
 
     </div>
   </div>
+  <script src="index.js"></script>
 </body>
