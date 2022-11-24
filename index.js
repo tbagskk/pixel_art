@@ -11,6 +11,7 @@ let taille = 20;
 
 
 
+
 function changeRange(value)
 {
     taille = value;
@@ -63,6 +64,8 @@ mon_element.addEventListener('click', function() {
 
 });
 */
+left = canvas.offsetHeight;
+
 const reed = "red";
 const red = document.getElementById("red");
 const black = document.getElementById("black");
@@ -79,12 +82,31 @@ black.addEventListener("click",change_black);
 const rect = canvas.getBoundingClientRect();
 let erraser = document.getElementById('erraser');
 erraser.addEventListener("click",effa);
+let rectg = document.getElementById('rectangle');
+rectg.addEventListener("click",change_rectg);
+let pen_click = document.getElementById('pen');
+pen_click.addEventListener("click",change_pen);
 let gomme = false;
+let rectangle_click = false;
 
 function effa()
 {
 	gomme = true;
 	console.log(gomme);
+  console.log("coordonée",left);
+}
+
+function change_rectg()
+{
+  rectangle_click = true;
+  gomme = false;
+  console.log("rectangle true");
+}
+
+function change_pen()
+{
+  penn = true;
+  rectangle_click = false;
 }
 
 canvas.addEventListener('mousedown', e => { //des qu'on appuie
@@ -112,28 +134,44 @@ window.addEventListener('mouseup', e => {
   }
 });
 console.log(x,y);
-
+let penn = true;
+let rects = canvas.getBoundingClientRect();
 function drawLine(context, x1, y1, x2, y2) {
   context.beginPath();
 
-  context.strokeStyle = "Red";
+  context.strokeStyle = color;
   context.fillStyle = color;
-  context.lineWidth = 10;
-  context.lineHeight = 10;
-  context.moveTo(x1, y1); //deplace vers nvl coordonées
-  context.lineTo(x2, y2); //connecte le dernier point du sous-chemin en cours aux coordonnées
- // context.arc(x1, y1, 5, 0, 2 * Math.PI); 
+  context.lineWidth = taille;
+  context.lineHeight = 1;
+  context.moveTo(x1 - rects.left ,y1 - rects.top); //deplace vers nvl coordonées
+  context.lineTo(x2,y2 ); //connecte le dernier point du sous-chemin en cours aux coordonnées
+  
+  context.moveTo((x1 - canvas.offsetLeft) * 960 / canvas.offsetHeight,(y1 - canvas.offsetTop) * 960 / canvas.offsetHeight); //deplace vers nvl coordonées
+  context.lineTo((x2 - canvas.offsetLeft) * 960 / canvas.offsetHeight,(y2 - canvas.offsetTop) * 960 / canvas.offsetHeight); //connecte le dernier point du sous-chemin en cours aux coordonnées
  
+ // context.arc(x1, y1, 5, 0, 2 * Math.PI); 
+  
    if (gomme == true)
   {
-  	context.clearRect(x1 - 50, y1 - 50, 100, 100);
+  	context.clearRect(x1 - (taille/2), (y1 -(taille/2)), taille, taille);
+    rectangle_click = false;
   }
-  else
+  
+  else if (rectangle_click == true)
   {
   	 context.fillRect(x1 - (taille/2), (y1 -(taille/2)), taille, taille);
+     
   }
+  else if (penn == true)
+  {
+    context.lineCap = "butt"
+    context.stroke();
+  }
+  
+  
   context.closePath();
 }
+
  /*
 function effacer(x1, y1, x2, y2)
 {
