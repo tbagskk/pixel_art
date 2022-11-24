@@ -52,7 +52,8 @@ body{
 	height: 960px;
 	width: 960px;
 	max-width: 1000px;
-	background: url("png.png");
+	/*background: url("png.png");*/
+	background-color: white;
 	display: flex;
 	justify-content:center;
 	flex-direction: column;
@@ -69,7 +70,22 @@ body{
 	align-items: center;
 	border-radius: 5px;
 }
+.pen_other
+{
+
+	height: 90px;
+	width: 90px;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
 .pen:hover
+{
+	background-color: rgb(92,92,92);
+}
+.pen_click
 {
 	background-color: rgb(92,92,92);
 }
@@ -94,6 +110,11 @@ body{
 	width: 90px;
 }
 .red:hover
+{
+	outline: 10px solid white;
+    outline-offset: -10px;
+}
+.color_click
 {
 	outline: 10px solid white;
     outline-offset: -10px;
